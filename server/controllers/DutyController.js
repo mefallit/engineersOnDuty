@@ -1,6 +1,7 @@
-import DutyModel from '../models/DutyModel';
+/* eslint-disable prefer-template */
 import {Parser} from 'json2csv';
 import {writeFile} from 'fs';
+import DutyModel from '../models/DutyModel';
 
 const DutyController = {};
 const dutyModel = new DutyModel();
@@ -11,20 +12,16 @@ DutyController.get = (req, res) => {
   const fields = ['Subject', 'Start Date', 'Start Time', 'All Day Event', 'Description'];
   const csv = new Parser({fields}).parse(json);
 
-  let path = './public/csv/file' + Date.now() + '.csv';
+  const path = './public/csv/file' + Date.now() + '.csv';
 
-  writeFile(path, csv, function (err, data) {
+  writeFile(path, csv, (err) => {
     if (err) {
       res.send('Something went wrong..');
       throw err;
-    }
-    else {
-      // res.send('Downloaded')
+    } else {
       res.download(path);
     }
   });
-
-
 };
 
 export default DutyController;

@@ -1,0 +1,28 @@
+{
+  "env": {
+    "browser": true,
+    "commonjs": true
+  },
+  "extends": "airbnb",
+  "rules": {
+    "linebreak-style": [
+      "error",
+      "unix"
+    ],
+    "quotes": ["error", "single"],
+    "no-var": 1,
+    "no-debugger": 1,
+    "no-console": 0,
+    "comma-dangle": 1,
+    "no-use-before-define": 0,
+    "max-len": [2, 120, 2, {
+      "ignoreStrings": true,
+      "ignoreComments": true
+    }],
+    "import/no-extraneous-dependencies": 0,
+    "import/prefer-default-export": 0,
+    "object-curly-spacing": 0,
+    "no-restricted-syntax": 0,
+    "class-methods-use-this": 0
+  }
+}
